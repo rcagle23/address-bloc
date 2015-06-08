@@ -1,4 +1,4 @@
-require_relative "entry.rb"
+require_relative "entry"
 
 class AddressBook
   attr_accessor :entries
@@ -20,9 +20,8 @@ class AddressBook
   end
   
   def remove_entry(entry)
-    entry = name, phone_number, email
-    if  @entries.include?('name, phone_number, email')
-      @entries.delete('name, phone_number, email')
+    if  @entries.include?(entry)
+      @entries.delete(entry)
     end
   end
 end
