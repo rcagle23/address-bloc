@@ -1,11 +1,11 @@
-require_relative "../models/address_book"
-
-class MenuController
-  attr_accessor :address_book
-  
-  def initialize
-    @address_book = AddressBook.new
-  end
+ require_relative "../models/address_book"
+ 
+ class MenuController
+   attr_accessor :address_book
+ 
+   def initialize
+     @address_book = AddressBook.new
+   end
   
   def main_menu
     puts "Main Menu - #{@address_book.entries.count} entries"

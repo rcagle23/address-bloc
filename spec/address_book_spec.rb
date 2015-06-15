@@ -1,3 +1,5 @@
+require "address_book"
+
 RSpec.describe AddressBook do
   context "attributes" do
     it "should respond to entries" do
