@@ -8,7 +8,7 @@ class MenuController
   end
   
   def main_menu
-    puts "Main Menu - #{@address_book.entries.count} entries"
+    puts "Main Menu - #{@address_book.entries.count} #{ @address_book.entries.count == 1 ? 'entry' : 'entries'}"
     puts "1 - View all entries"
     puts "2 - View specific entry number"
     puts "3 - Create an entry"
@@ -65,12 +65,16 @@ class MenuController
     puts "Entry number:"
     number = gets.chomp
     
-    if @address_book.entries.include?("#{number}")
+    if number == "q"
+      main_menu
+    elsif @address_book.entries.length > number.to_i
       system "clear"
-      puts @address_book.entries["#{number}"]
+      puts @address_book.entries[number.to_i]
+      main_menu
     else
       system "clear"
-      puts "Please input a valid number"
+      puts "Please input a valid number or q to go back to Main Menu"
+      sleep 4
       search_entries_number
     end
   end
