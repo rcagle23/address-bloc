@@ -28,7 +28,5 @@ class AddressBook
       row_hash = row.to_hash
       add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
     end
-    
-    return csv.count
   end
 end
