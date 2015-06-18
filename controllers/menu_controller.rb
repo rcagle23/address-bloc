@@ -41,6 +41,7 @@
       else
         system "clear"
         puts "Sorry, that is not a valid input"
+        sleep 2
         main_menu
       end
     end
