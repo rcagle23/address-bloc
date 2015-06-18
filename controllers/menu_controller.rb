@@ -1,4 +1,4 @@
-require_relative "../models/address_book"
+require "address_book"
 
 class MenuController
   attr_accessor :address_book
@@ -41,6 +41,7 @@ class MenuController
       else
         system "clear"
         puts "Sorry, that is not a valid input"
+        sleep 2
         main_menu
       end
     end
