@@ -1,4 +1,6 @@
- RSpec.describe AddressBook do
+require "address_book"
+
+RSpec.describe AddressBook do
 
   def check_entry(entry, expected_name, expected_number, expected_email)
     expect(entry.name).to eql expected_name
@@ -55,6 +57,17 @@
        entry_five = book.entries[4]
        check_entry(entry_five, "Sussie", "555-555-5555", "sussie@blocmail.com")
      end
+   end 
+   
+  
+   context ".import_from_csv" do
+     it "tests the csv import process" do
+       book = AddressBook.new
+       book.import_from_csv("entries_2.csv")
+       book_size = book.entries.size
 
+       # Check the size of the AddressBook.entries
+       expect(book_size).to eql 3
+     end 
    end
  end
