@@ -41,8 +41,8 @@ RSpec.describe AddressBook do
   end
   
   #Test that AddressBook's .import_from_csv() method is working as expected
-  context ".import_from_csv" do
-    it "imports the correct number of entries" do
+   context ".import_from_csv" do
+     it "imports the correct number of entries" do
       book.import_from_csv("entries.csv")
       book_size = book.entries.size
       
@@ -92,6 +92,42 @@ RSpec.describe AddressBook do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Dan")
        expect(entry).to be_nil
+     end
+     
+    it "searches AddressBook for Bill" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Bill")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Bill", "555-555-5555", "bill@blocmail.com")
+     end
+     
+     
+     it "searches AddressBook for Bob" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Bob")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Bob", "555-555-5555", "bob@blocmail.com")
+     end 
+ 
+     it "searches AddressBook for Joe" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Joe")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Joe", "555-555-5555", "joe@blocmail.com")
+     end 
+ 
+     it "searches AddressBook for Sally" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Sally")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Sally", "555-555-5555", "sally@blocmail.com")
+     end 
+ 
+     it "searches AddressBook for Sussie" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Sussie")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Sussie", "555-555-5555", "sussie@blocmail.com")
      end 
    end
 end
