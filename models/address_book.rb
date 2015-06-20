@@ -48,4 +48,12 @@ class AddressBook
      end
      return nil
    end
+  
+  def iterative_search(name)
+    if entries.include?(name)
+      return name
+    else
+      return nil
+    end
+  end
 end
