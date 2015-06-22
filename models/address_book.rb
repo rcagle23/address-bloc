@@ -50,10 +50,6 @@ class AddressBook
    end
   
   def iterative_search(name)
-    name.to_s
-    if @entries.include?(name)
-      return name
-    end
-    return nil
+    @entries.find { |entry| entry.name == name }
   end
 end
