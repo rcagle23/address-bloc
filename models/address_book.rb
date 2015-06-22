@@ -50,10 +50,10 @@ class AddressBook
    end
   
   def iterative_search(name)
-    if entries.include?(name)
+    name.to_s
+    if @entries.include?(name)
       return name
-    else
-      return nil
     end
+    return nil
   end
 end
