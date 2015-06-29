@@ -6,29 +6,6 @@
    def initialize
      @address_book = AddressBook.new
    end
-   
-   
-   def detonate 
-     puts "Are you sure you want to delete all entries?"
-     puts "Yes to delete"
-     puts "No to return to menu"
-     sleep 4
-     
-     selection = gets.chomp.lowercase
-     
-     case selection
-       when "yes" 
-         delete_entry.each do |entry|
-           entry.delete.all
-         end         
-       when "no"
-         main_menu
-       else
-         puts "not a valid input, returning to main_menu"
-         sleep 2
-         main_menu
-     end
-   end
   
    def main_menu
     puts "Main Menu - #{@address_book.entries.count} entries"
@@ -37,7 +14,7 @@
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
-    puts "6- Delete all entries"
+    puts "6 - Delete all entries"
     print "Enter your selection: "
     
     selection = gets.to_i
@@ -115,6 +92,33 @@
        puts "No match found for #{name}"
      end
   end
+   
+   def detonate 
+     puts "Are you sure you want to delete all entries?"
+     puts "Yes to delete"
+     puts "No to return to menu"
+     sleep 4
+     
+     selection = gets.chomp.downcase
+     
+     case selection
+       when "yes" 
+       @address_book.entries.clear
+         puts "Entries are removed"
+         sleep 2
+         system "clear"
+         main_menu
+       when "no"
+         puts "Returning to Main Menu"
+         sleep 2
+         system "clear"
+         main_menu
+       else
+         puts "not a valid input, returning to main_menu"
+         sleep 2
+         main_menu
+     end
+   end
    
   def edit_entry(entry)
      print "Updated name: "
