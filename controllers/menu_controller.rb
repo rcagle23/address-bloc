@@ -17,6 +17,7 @@
     print "Enter your selection: "
     
     selection = gets.to_i
+ 
     case selection
       when 1
         system "clear"

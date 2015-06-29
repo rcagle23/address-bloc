@@ -30,14 +30,14 @@ class AddressBook
     end
   end
   
-   def binary_search(name)
-     lower = 0
+       lower = 0
      upper = entries.length - 1
 
      while lower <= upper
+
        mid = (lower + upper) / 2
        mid_name = entries[mid].name
- 
+
        if name == mid_name
          return entries[mid]
        elsif name < mid_name
@@ -46,8 +46,30 @@ class AddressBook
          lower = mid + 1
        end
      end
+  
+  
+   def binary_search(name)
+     count = entries.length
+     if count.zero?
+       puts name
+       binary_search(name-1)
+     end
      return nil
    end
+    
+  # example of recursion
+    # def countdown(n)
+      # return if n.zero? # base case
+      # puts n
+      # countdown(n-1)    # getting closer to base case 
+    # end               
+
+    #countdown(5)
+    #5
+    #4
+    #3
+    #2
+    #1
   
   def iterative_search(name)
     @entries.find { |entry| entry.name == name }
